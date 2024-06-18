@@ -2,10 +2,11 @@
 
 namespace Core;
 
-class Controller
+abstract class Controller
 {
     public function view($title, $file, $data = [])
     {
-        require_once BASE_PATH . 'resources/views/' . $file . '.php';
+        //TODO: If is user auth load auth.php else guest.php
+        require_once BASE_PATH . 'resources/layouts/guest.php';
     }
 }
