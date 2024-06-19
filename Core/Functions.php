@@ -4,7 +4,7 @@ namespace Core;
 
 class Functions
 {
-    public function dd($value)
+    public static function dd($value)
     {
         echo "<pre>";
         var_dump($value);
