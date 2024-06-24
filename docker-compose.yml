@@ -6,7 +6,7 @@ services:
     build:
       context: docker/nginx
     ports:
-      - 80:80
+      - 8080:80
     volumes:
       - ./:/var/www/html
     depends_on:
@@ -15,8 +15,14 @@ services:
   php:
     build:
       context: docker/php
+    environment:
+      XDEBUG_CONFIG: "client_host=host.docker.internal"
+      PHP_IDE_CONFIG: "serverName=docker"
+    expose:
+      - 9000
     volumes:
       - ./:/var/www/html
+      - /tmp/xdebug:/tmp/xdebug
   mysql:
     image: mariadb:11.4
     ports:

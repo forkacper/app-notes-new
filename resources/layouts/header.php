@@ -9,4 +9,4 @@
 
     <script src="js/bundle.js"></script>
 </head>
-<body>
+<body class="bg-gray-50">

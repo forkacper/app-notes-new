@@ -12,4 +12,9 @@ class RegistrationController extends Controller
             'foo' => 'bar'
         ]);
     }
+
+    public function store()
+    {
+
+    }
 }

@@ -5,4 +5,6 @@ use Http\Controllers\RegistrationController;
 
 /** @var \Core\Router $router */
 $router->get('/registration', RegistrationController::class, 'index');
-$router->get('/', LoginController::class, 'index');
+
+$router->get('/login', LoginController::class, 'index');
+$router->post('/login', LoginController::class, 'store');
