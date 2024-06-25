@@ -43,4 +43,9 @@ class Database
     {
         return $this->statment->fetch();
     }
+
+    public function lastId()
+    {
+        return $this->db->lastInsertId();
+    }
 }

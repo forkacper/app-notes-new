@@ -2,45 +2,18 @@
 
 namespace Http\Forms;
 
-use Core\Exceptions\ValidationException;
 use Core\Validator;
 
-class LoginForm
+class LoginForm extends Form
 {
-    public array $errors = [];
-
-    public function __construct(public array $attributes)
+    #[\Override] protected function validateForm(array $attributes): void
     {
         if (!Validator::email($attributes['email'])) {
-            $this->errors['email'] = 'Please provide a valid email address.';
+            $this->error('email', 'Please provide a valid email address.');
         }
 
         if (!Validator::string($attributes['password'])) {
-            $this->errors['password'] = 'Please provide a valid password.';
+            $this->error('password', 'Please provide a valid password.');
         }
-    }
-
-    public static function validate($attributes)
-    {
-        $instance = new static($attributes);
-
-        return $instance->failed() ? $instance->throw() : $instance;
-    }
-
-    public function throw()
-    {
-        ValidationException::throw($this->errors, $this->attributes);
-    }
-
-    public function failed()
-    {
-        return count($this->errors);
-    }
-
-    public function error($key, $value)
-    {
-        $this->errors[$key] = $value;
-
-        return $this;
     }
 }
