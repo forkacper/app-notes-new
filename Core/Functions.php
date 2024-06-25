@@ -12,4 +12,22 @@ class Functions
 
         die();
     }
+
+    public static function redirect($url)
+    {
+        header("Location: {$url}");
+        exit();
+    }
+
+    public static function old($key)
+    {
+        $session = Session::get(Session::OLD_KEY);
+        return $session[$key] ?? '';
+    }
+
+    public static function error($key)
+    {
+        $session = Session::get(Session::ERRORS_KEY);
+        return $session[$key] ?? '';
+    }
 }
