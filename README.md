@@ -15,12 +15,14 @@ The project was created for training purposes to learn how to implement basic we
 - Adding notes
 - Editing notes
 - Deleting notes
-- Object-oriented design
+- Object-oriented structure
 - Routing
 - Middleware
 - Controllers
 - Form validation
 - Dependency injection using a container
+- Central entry point (`index.php`)
+- PRG (Post/Redirect/Get) pattern
 
 ## Technologies
 
