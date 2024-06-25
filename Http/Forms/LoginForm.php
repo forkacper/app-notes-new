@@ -36,4 +36,11 @@ class LoginForm
     {
         return count($this->errors);
     }
+
+    public function error($key, $value)
+    {
+        $this->errors[$key] = $value;
+
+        return $this;
+    }
 }

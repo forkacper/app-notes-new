@@ -5,6 +5,7 @@ namespace Core;
 class Session
 {
     public const USER_KEY = 'user';
+    public const USER_ID_KEY = Session::USER_KEY . '.id';
     public const USERNAME_KEY = Session::USER_KEY . '.username';
     public const EMAIL_KEY = Session::USER_KEY . '.email';
 

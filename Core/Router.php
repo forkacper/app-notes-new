@@ -2,6 +2,8 @@
 
 namespace Core;
 
+use Core\Middlewares\Middleware;
+
 class Router
 {
     protected array $routes = [];
@@ -12,21 +14,27 @@ class Router
             'controller' => $controller,
             'action' => $action,
             'method' => $method,
+            'middleware' => ''
         ];
     }
 
     public function get($url, $controller, $action) {
-        return $this->addRoute($url, $controller, $action, 'GET');
+        $this->addRoute($url, $controller, $action, 'GET');
+
+        return $this;
     }
 
     public function post($url, $controller, $action) {
-        return $this->addRoute($url, $controller, $action, 'POST');
+        $this->addRoute($url, $controller, $action, 'POST');
+
+        return $this;
     }
 
     public function route($url, $method)
     {
         foreach ($this->routes as $route) {
             if ($route['url'] === $url && $route['method'] === $method) {
+                Middleware::resolve($route['middleware']);
 
                 $controller = $route['controller'];
                 $action = $route['action'];
@@ -36,6 +44,13 @@ class Router
         }
 
         $this->abort();
+    }
+
+    public function only($key)
+    {
+        $this->routes[array_key_last($this->routes)]['middleware'] = $key;
+
+        return $this;
     }
 
     public function previousUrl()

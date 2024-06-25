@@ -30,4 +30,9 @@ class Functions
         $session = Session::get(Session::ERRORS_KEY);
         return $session[$key] ?? '';
     }
+
+    public static function isAuth()
+    {
+        return (bool)Session::get(Session::USER_ID_KEY);
+    }
 }
