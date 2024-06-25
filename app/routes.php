@@ -2,6 +2,7 @@
 
 use Http\Controllers\DashboardController;
 use Http\Controllers\LoginController;
+use Http\Controllers\NotesController;
 use Http\Controllers\RegistrationController;
 
 /** @var \Core\Router $router */
@@ -13,3 +14,4 @@ $router->post('/login', LoginController::class, 'store')->only('guest');
 $router->delete('/login', LoginController::class, 'destroy')->only('auth');
 
 $router->get('/', DashboardController::class, 'index')->only('auth');
+$router->get('/notes', NotesController::class, 'index')->only('auth');

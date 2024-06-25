@@ -35,4 +35,9 @@ class Functions
     {
         return (bool)Session::get(Session::USER_ID_KEY);
     }
+
+    public static function isUrl($url): bool
+    {
+        return $url === $_SERVER['REQUEST_URI'];
+    }
 }
