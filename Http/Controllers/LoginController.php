@@ -32,4 +32,10 @@ class LoginController extends Controller
 
         Functions::redirect('/');
     }
+
+    public function destroy()
+    {
+        (new Authenticator())->logout();
+        Functions::redirect('/login');
+    }
 }

@@ -10,5 +10,6 @@ $router->post('/registration', RegistrationController::class, 'store')->only('gu
 
 $router->get('/login', LoginController::class, 'index')->only('guest');
 $router->post('/login', LoginController::class, 'store')->only('guest');
+$router->delete('/login', LoginController::class, 'destroy')->only('auth');
 
 $router->get('/', DashboardController::class, 'index')->only('auth');

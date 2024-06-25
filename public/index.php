@@ -14,7 +14,7 @@ $router = new Router();
 require_once BASE_PATH . 'app/routes.php';
 
 $url = parse_url($_SERVER['REQUEST_URI'])['path'];
-$method = $_SERVER['REQUEST_METHOD'];
+$method = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];
 
 Session::start();
 

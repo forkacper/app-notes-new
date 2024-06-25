@@ -30,6 +30,12 @@ class Router
         return $this;
     }
 
+    public function delete($url, $controller, $action) {
+        $this->addRoute($url, $controller, $action, 'DELETE');
+
+        return $this;
+    }
+
     public function route($url, $method)
     {
         foreach ($this->routes as $route) {
