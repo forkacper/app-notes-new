@@ -8,6 +8,20 @@
 
 The project was created for training purposes to learn how to implement basic web application functionalities, such as user authentication and CRUD (Create, Read, Update, Delete) operations for notes.
 
+## Features
+
+- User registration
+- User login
+- Adding notes
+- Editing notes
+- Deleting notes
+- Object-oriented design
+- Routing
+- Middleware
+- Controllers
+- Form validation
+- Dependency injection using a container
+
 ## Technologies
 
 The project is built using the following technologies and tools:
