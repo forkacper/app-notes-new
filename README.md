@@ -8,22 +8,6 @@
 
 The project was created for training purposes to learn how to implement basic web application functionalities, such as user authentication and CRUD (Create, Read, Update, Delete) operations for notes.
 
-## Features
-
-- User registration
-- User login
-- Adding notes
-- Editing notes
-- Deleting notes
-- Object-oriented structure
-- Routing
-- Middleware
-- Controllers
-- Form validation
-- Dependency injection using a container
-- Central entry point (`index.php`)
-- PRG (Post/Redirect/Get) pattern
-
 ## Technologies
 
 The project is built using the following technologies and tools:
@@ -64,3 +48,12 @@ After installing and starting the application, you can:
 - Add new notes
 - Edit existing notes
 - Delete notes
+
+## Additional Information
+
+- The application follows an object-oriented design.
+- It includes routing, middleware, controllers, and form validation.
+- The application uses a container and dependency injection.
+- The central entry point of the application is index.php.
+- The application follows the PRG (Post/Redirect/Get) pattern.
+- It uses PSR-4 autoloading via Composer.
