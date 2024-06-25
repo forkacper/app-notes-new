@@ -33,10 +33,10 @@ To run the project locally, follow these steps:
    docker compose exec php composer install
 4. Run database migrations:
     ```bash
-   docker compose exec php /vendor/bin/phinx migrate
+   docker compose exec php php /vendor/bin/phinx migrate
 5. Install Node.js dependencies and build the frontend:
     ```bash
-   docker compose run node npm install && npm run build
+   docker compose run node npm install &&  docker compose run node npm run build
 6. The application will be available at http://localhost:8080.
 
 ## Usage
