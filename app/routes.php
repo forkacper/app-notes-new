@@ -15,3 +15,5 @@ $router->delete('/login', LoginController::class, 'destroy')->only('auth');
 
 $router->get('/', DashboardController::class, 'index')->only('auth');
 $router->get('/notes', NotesController::class, 'index')->only('auth');
+$router->get('/notes/create', NotesController::class, 'create')->only('auth');
+$router->post('/notes/create', NotesController::class, 'store')->only('auth');

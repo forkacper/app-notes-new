@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?= $title ?? 'Notes' ?></title>
 
-    <script src="js/bundle.js"></script>
+    <link rel="stylesheet" href="/js/bundle.js">
+    <script src="/js/bundle.js"></script>
 </head>
 <body class="bg-gray-50">
