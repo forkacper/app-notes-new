@@ -37,7 +37,7 @@ To run the project locally, follow these steps:
    docker compose exec php php ./vendor/bin/phinx migrate
 5. Install Node.js dependencies and build the frontend:
     ```bash
-   docker compose run node npm install && docker compose run node npm run start
+   docker compose run node npm install && docker compose run node npm run build
 6. The application will be available at http://localhost:8080.
 
 ## Usage
@@ -60,10 +60,10 @@ After installing and starting the application, you can:
 - It uses PSR-4 autoloading via Composer.
 
 ## Tests
-
+    
 The project uses the Pest testing library. A simple test has been added to check the form validator.
 
 To run the tests, use the following command:
 
-```bash
+```bash            
 docker compose exec php ./vendor/bin/pest
