@@ -36,6 +36,15 @@ class Functions
         return (bool)Session::get(Session::USER_ID_KEY);
     }
 
+    public static function authorize(int $userId): bool
+    {
+        if ($userId === Session::get(Session::USER_ID_KEY)) {
+            return true;
+        }
+
+        return false;
+    }
+
     public static function isUrl($url): bool
     {
         return $url === $_SERVER['REQUEST_URI'];

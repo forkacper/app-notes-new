@@ -8,46 +8,48 @@
     </div>
 </div>
 
-<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-    <table class="w-full text-sm text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-        <tr>
-            <th scope="col" class="px-6 py-3">
-                Title
-            </th>
-            <th scope="col" class="px-6 py-3">
-                Description
-            </th>
-            <th scope="col" class="px-6 py-3">
-                Action
-            </th>
-        </tr>
-        </thead>
-        <tbody>
-        <?php
-            if (!empty($notes)):
-            foreach ($notes as $note): ?>
-        <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-            <td class="px-6 py-4 text-center">
-                <?= $note['title'] ?>
-            </td>
-            <td class="px-6 py-4">
-                <?= $note['description'] ?>
-            </td>
-            <td class="px-6 py-4 text-center">
-                <a href="/note?id=<?= $note['id'] ?>">Update</a>
-                <form method="POST" action="/note/delete">
-                    <input name="_method" value="DELETE" hidden>
-                    <input name="id" value="<?= $note['id'] ?>" hidden>
-                    <button type="submit" class="">Delete</button>
-                </form>
-            </td>
-        </tr>
-        <?php endforeach; else: ?>
-            <tr>
-                <td rowspan="4" class="text-center">Brak notatek...</td>
+<div class="flex min-h-screen items-center justify-center">
+    <div class="overflow-x-auto">
+        <table class="min-w-full bg-white shadow-md rounded-xl">
+            <thead>
+            <tr class="bg-blue-gray-100 text-gray-700">
+                <th class="py-3 px-4 text-left">Title</th>
+                <th class="py-3 px-4 text-left">Description</th>
+                <th class="py-3 px-4 text-left"></th>
+                <th class="py-3 px-4 text-left"></th>
             </tr>
-        <?php endif; ?>
-        </tbody>
-    </table>
-</div>
+            </thead>
+            <tbody class="text-blue-gray-900">
+            <?php
+            if (!empty($notes)):
+                foreach ($notes as $note): ?>
+                <tr class="border-b border-blue-gray-200">
+
+                <td class="py-3 px-4">
+                    <?= $note['title'] ?>
+                </td>
+
+                <td class="py-3 px-4">
+                    <?= $note['description'] ?>
+                </td>
+
+                <td class="py-3 px-4">
+                    <a href="#" class="font-medium text-blue-600 hover:text-blue-800">Edit</a>
+                </td>
+
+                <td class="py-3 px-4">
+                    <form method="POST" action="/note">
+                        <input name="_method" hidden value="DELETE">
+                        <input name="id" hidden value="<?= $note['id'] ?>">
+                        <button type="submit" class="font-medium text-blue-600 hover:text-blue-800">Delete</button>
+                    </form>
+                </td>
+
+            </tr>
+        <?php endforeach; else: ?>
+        <tr>
+            <td rowspan="4" class="text-center">Brak notatek...</td>
+        </tr>
+    <?php endif; ?>
+    </tbody>
+</table>

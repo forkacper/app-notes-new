@@ -20,4 +20,10 @@ abstract class Controller
             require_once BASE_PATH . 'resources/layouts/guest.php';
         }
     }
+
+    public function abort($response = Response::UNAUTHORIZED)
+    {
+        $file = 'errors/' . $response;
+        $this->view('Something went wrong!', $file, []);
+    }
 }
