@@ -17,6 +17,7 @@ The project is built using the following technologies and tools:
 - Composer packages:
     - phinx
     - phpdotenv
+    - pest
 - Webpack
 - Tailwind CSS
 
@@ -57,3 +58,12 @@ After installing and starting the application, you can:
 - The central entry point of the application is index.php.
 - The application follows the PRG (Post/Redirect/Get) pattern.
 - It uses PSR-4 autoloading via Composer.
+
+## Tests
+
+The project uses the Pest testing library. A simple test has been added to check the form validator.
+
+To run the tests, use the following command:
+
+```bash
+docker compose exec php ./vendor/bin/pest
