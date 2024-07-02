@@ -33,12 +33,12 @@ class Functions
 
     public static function isAuth()
     {
-        return (bool)Session::get(Session::USER_ID_KEY);
+        return (bool) Session::get(Session::USER_ID_KEY);
     }
 
     public static function authorize(int $userId): bool
     {
-        if ($userId === Session::get(Session::USER_ID_KEY)) {
+        if ($userId === (int) Session::get(Session::USER_ID_KEY)) {
             return true;
         }
 
