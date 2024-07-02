@@ -16,24 +16,24 @@ class Router
             'method' => $method,
             'middleware' => ''
         ];
+
+        return $this;
     }
 
     public function get($url, $controller, $action) {
-        $this->addRoute($url, $controller, $action, 'GET');
-
-        return $this;
+        return $this->addRoute($url, $controller, $action, 'GET');
     }
 
     public function post($url, $controller, $action) {
-        $this->addRoute($url, $controller, $action, 'POST');
-
-        return $this;
+        return $this->addRoute($url, $controller, $action, 'POST');
     }
 
     public function delete($url, $controller, $action) {
-        $this->addRoute($url, $controller, $action, 'DELETE');
+        return $this->addRoute($url, $controller, $action, 'DELETE');
+    }
 
-        return $this;
+    public function patch($url, $controller, $action) {
+        return $this->addRoute($url, $controller, $action, 'PATCH');
     }
 
     public function route($url, $method)

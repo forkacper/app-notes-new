@@ -5,11 +5,15 @@ namespace Http\Forms;
 use Core\Form;
 use Core\Validator;
 
-class CreateNoteForm extends Form
+class UpdateNoteForm extends Form
 {
 
-    #[\Override] protected function validateForm(array $attributes): void
+    protected function validateForm(array $attributes): void
     {
+        if (!Validator::string('id')) {
+            $this->errors['id'] = 'Something went wrong!';
+        }
+
         if (!Validator::string($attributes['title'])) {
             $this->error('title', 'Please provide a valid note title.');
         }

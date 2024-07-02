@@ -34,7 +34,7 @@
                 </td>
 
                 <td class="py-3 px-4">
-                    <a href="#" class="font-medium text-blue-600 hover:text-blue-800">Edit</a>
+                    <a href="/note?id=<?= $note['id'] ?>" class="font-medium text-blue-600 hover:text-blue-800">Edit</a>
                 </td>
 
                 <td class="py-3 px-4">

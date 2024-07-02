@@ -1,9 +1,8 @@
 <?php
 
-namespace Http\Forms;
+namespace Core;
 
 use Core\Exceptions\ValidationException;
-use Core\Validator;
 
 abstract class Form
 {

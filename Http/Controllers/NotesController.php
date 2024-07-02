@@ -4,10 +4,12 @@ namespace Http\Controllers;
 
 use Core\Controller;
 use Core\Functions;
+use Core\Response;
 use Core\Session;
 use Http\Forms\CreateNoteForm;
 use Http\Forms\DeleteNoteForm;
 use Http\Forms\RegistrationForm;
+use Http\Forms\UpdateNoteForm;
 
 class NotesController extends Controller
 {
@@ -54,6 +56,40 @@ class NotesController extends Controller
         }
 
         $this->db->query('DELETE FROM notes WHERE id = :id', $attributes);
+
+        Functions::redirect('/notes');
+    }
+
+    public function show()
+    {
+        if (empty($_GET['id'])) $this->abort(Response::NOT_FOUND);
+
+        $note = $this->db->query('SELECT * FROM notes WHERE id = :id', ['id' => $_GET['id']])->find();
+
+        if (!$note) $this->abort(Response::NOT_FOUND);
+
+        if (!Functions::authorize($note['user_id'])) $this->abort(Response::UNAUTHORIZED);
+
+        $this->view('Edit Note', 'notes/show', $note);
+    }
+
+    public function update()
+    {
+        UpdateNoteForm::validate($attributes = [
+            'id' => $_POST['id'],
+            'title' => $_POST['title'],
+            'description' => $_POST['description']
+        ]);
+
+        $note = $this->db->query('SELECT * FROM notes WHERE id = :id', [
+            'id' => $attributes['id']
+        ])->find();
+
+        if (!$note) $this->abort(Response::NOT_FOUND);
+
+        if (!Functions::authorize($note['user_id'])) $this->abort(Response::UNAUTHORIZED);
+
+        $this->db->query('UPDATE notes SET title = :title, description = :description WHERE id = :id', $attributes);
 
         Functions::redirect('/notes');
     }

@@ -2,6 +2,7 @@
 
 namespace Http\Forms;
 
+use Core\Form;
 use Core\Validator;
 
 class LoginForm extends Form

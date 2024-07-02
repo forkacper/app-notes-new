@@ -10,7 +10,7 @@ abstract class Controller
         $this->db = App::resolve(Database::class);
     }
 
-    public function view($title, $file, $data = [])
+    public function view($pageTitle, $file, $data = [])
     {
         extract($data);
 
@@ -25,5 +25,6 @@ abstract class Controller
     {
         $file = 'errors/' . $response;
         $this->view('Something went wrong!', $file, []);
+        die();
     }
 }

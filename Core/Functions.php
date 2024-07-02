@@ -22,13 +22,13 @@ class Functions
     public static function old($key)
     {
         $session = Session::get(Session::OLD_KEY);
-        return $session[$key] ?? '';
+        return $session[$key] ?? null;
     }
 
     public static function error($key)
     {
         $session = Session::get(Session::ERRORS_KEY);
-        return $session[$key] ?? '';
+        return $session[$key] ?? null;
     }
 
     public static function isAuth()

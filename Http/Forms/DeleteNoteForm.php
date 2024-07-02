@@ -2,8 +2,8 @@
 
 namespace Http\Forms;
 
+use Core\Form;
 use Core\Validator;
-use Http\Forms\Form;
 
 class DeleteNoteForm extends Form
 {
