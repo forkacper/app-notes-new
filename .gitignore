@@ -5,3 +5,5 @@ vendor/
 node_modules/
 
 .env
+
+public/js/bunde.js
